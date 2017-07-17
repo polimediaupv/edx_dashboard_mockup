@@ -1,0 +1,44 @@
+.right {
+        float: right;
+    }
+    .ahora {
+    background-color: #f50057;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 20px;
+    margin-right: 6px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    }
+
+@keyframes fill {
+	          0% {
+	              fill: rgba(116, 10, 10, 0.48);
+	          }
+	          25% {
+	              fill: rgba(150, 10, 10, 0.58);
+	          }
+              50% {
+	              fill: rgba(210, 10, 10, 0.78);
+	          }
+              75% {
+	              fill: rgba(150, 10, 10, 0.58);
+	          }
+              100% {
+	              fill: rgba(116, 10, 10, 0.48);
+	          }
+	      }
+
+.Blinker>rect {
+        fill:rgba(116, 10, 10, 0.48);
+        animation-name: fill;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+

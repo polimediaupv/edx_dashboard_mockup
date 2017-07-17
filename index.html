@@ -1,0 +1,652 @@
+<html><head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard v.0</title>
+
+  <link href="style/bootstrap.min.css" rel="stylesheet">
+  <link href="style/style.css" rel="stylesheet">
+  <link href="style/dashboard.css" rel="stylesheet">
+  <link href="style/Highchart.css" rel="stylesheet">
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <script src="./libs/HighCharts/highcharts.js"></script>
+  <script src="./libs/HighCharts/heatmap.js"></script>
+
+
+</head>
+
+<body class="top-navigation">
+
+  <div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand"><i class="zmdi zmdi-view-dashboard"></i> Dashboard</a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#">
+                Desde: 24/03/20015 Hasta 30/08/2017
+                </a>
+              </li>
+
+
+
+
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+      <div class="wrapper wrapper-content">
+        <div class="container">
+          <div class="settings-container" id="settings-container"><!--container settings-->
+            <div class="btn btn-app btn-xs btn-warning settings-btn" id="settings-btn">
+              <i class="zmdi zmdi-settings zmdi-hc-2x zmdi-hc-spin"></i>
+            </div>
+
+            <div class="settings-box clearfix" id="settings-box">
+              <div class="pull-left width-50">
+                <div class="settings-item">
+                  <input type="checkbox" class=" checkbox-2 save-state" id="settings-navbar" autocomplete="off">
+                  <label class="lbl" for="settings-navbar"> Futuro</label>
+                </div>
+
+                <div class="settings-item">
+                  <input type="checkbox" class=" checkbox-2 save-state" id="settings-sidebar" autocomplete="off">
+                  <label class="lbl" for="settings-sidebar"> En Marcha</label>
+                </div>
+
+                <div class="settings-item">
+                  <input type="checkbox" class=" checkbox-2 save-state" id="settings-breadcrumbs" autocomplete="off">
+                  <label class="lbl" for="settings-breadcrumbs"> Archivado</label>
+                </div>
+
+                <div class="settings-item">
+                  <input type="checkbox" class=" checkbox-2" id="settings-rtl" autocomplete="off">
+                  <label class="lbl" for="settings-rtl"> Self paced</label>
+                </div>
+
+                <div class="settings-item">
+                  <input type="checkbox" class=" checkbox-2" id="settings-rtl" autocomplete="off">
+                  <label class="lbl" for="settings-rtl"> Instructor paced</label>
+                </div>
+                <div class="settings-item">
+                  <label class="lbl" for="settings-rtl">Plataforma</label>
+                  <select>
+                    <option value="todas">Todas</option>
+                    <option value="edxorg">EDX.org</option>
+                    <option value="upvx">UPV[X]</option>
+                  </select>
+
+                </div>
+              </div>
+
+              <div class="pull-left width-50">
+                <div class="settings-item">
+                  <input type="text" class="form-control" placeholder="Fecha inicio curso" id="fechainicio">
+                </div>
+
+                <div class="settings-item">
+                  <input type="text" class="form-control" placeholder="Fecha fin curso" id="fechainicio">
+                </div>
+
+                <div class="settings-item">
+                  <input type="text" class="form-control" placeholder="Fecha inicio filtro" id="fechainicio">
+                </div>
+
+                <div class="settings-item">
+                  <input type="text" class="form-control" placeholder="Fecha fin filtro" id="fechainicio">
+                </div>
+              </div>
+            </div>
+          </div> <!--container settings-->
+
+
+
+
+          <div class="ibox float-e-margins"> <!--Datos generales-->
+            <div class="ibox-content">
+          <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-account"></i> Total Inscritos</span>
+              <div class="count">12500</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>6%</i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-account"></i> Inscritos Actuales</span>
+              <div class="count">11000</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-account"></i> Alumnos con actividad</span>
+              <div class="count">7000</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-account"></i> Alumnos con examen</span>
+              <div class="count">5000</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Total videos</span>
+              <div class="count">2500</div>
+              <span class="count_bottom"> -</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Minutos de video</span>
+              <div class="count">30000'</div>
+              <span class="count_bottom"> -</span>
+            </div>
+          </div>
+            <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Minutos video unico visto</span>
+              <div class="count">5000'</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Minutos video repetido visto</span>
+              <div class="count">5000</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Media visualizaciones completas</span>
+              <div class="count">40%</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-collection-video"></i> Media visualizaciones incompletas</span>
+              <div class="count">60%</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-assignment"></i> Ejercicios con nota</span>
+              <div class="count green">5000</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-assignment"></i> Ejercicios sin nota</span>
+              <div class="count red">5000</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-down zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+          </div>
+          <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-assignment"></i> Promedio ejercicios correctos</span>
+              <div class="count green">80%</div>
+              <span class="count_bottom"><i class="green"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-assignment"></i> Promedio ejercicios incorrectos</span>
+              <div class="count red">10%</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-down zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-comments"></i> Usuarios foro</span>
+              <div class="count">5000</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-down zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="zmdi zmdi-comments"></i> Intervenciones foro</span>
+              <div class="count">5000</div>
+              <span class="count_bottom"><i class="red"><i class="zmdi zmdi-trending-down zmdi-hc-fw"></i>5% </i> Semana anterior</span>
+            </div>
+
+          </div>
+        </div>
+      </div><!--Datos generales-->
+
+      <div class="ibox float-e-margins" id="paneles"> <!--Datos generales-->
+        <div class ="ibox-title">
+            <div class="navbar">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#demographics">Demografía</a></li>
+                <li><a data-toggle="tab" href="#totales">Datos Totales</a></li>
+                <li><a data-toggle="tab" href="#temporal">Evolución Temporal</a></li>
+                <li><a data-toggle="tab" href="#compare">Comparación cursos</a></li>
+                <li><a data-toggle="tab" href="#student">Alumno</a></li>
+                <li><a data-toggle="tab" href="#course">Curso</a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="tab-content">
+          <div class="ibox-content tab-pane fade" id="demographics"> <!--demographics-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="population" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="gender" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="studies" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="country" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+            </div>
+          </div> <!--demographics-->
+
+          <div class="ibox-content tab-pane fade in active" id="temporal"> <!--temporal-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="generales_evol" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="generales_evol2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="generales_variacion" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="generales_acceso" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="video_ejercicios" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="video_ejercicios2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+            </div>
+          </div> <!--temporal-->
+
+          <div class="ibox-content tab-pane fade" id="totales"> <!--totales-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="totales_globales" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="totales_performance" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="totales_notas" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="totales_videos" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+            </div>
+          </div> <!--totales-->
+
+          <div class="ibox-content tab-pane fade" id="compare"> <!--compare-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="compare_register" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="compare_active" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="compare_exam" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="compare_pass" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="compare_verified" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+            </div>
+          </div> <!--compare-->
+
+          <div class="ibox-content tab-pane fade" id="student"> <!--student-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+                <div id="student_problem" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+              </div>
+            </div>
+          </div> <!--student-->
+          <div class="ibox-content tab-pane fade" id="course"> <!--course-->
+            <div class="row tile_count">
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12 tile_stats_count">
+              </div>
+            </div>
+          </div> <!--course-->
+        </div>
+
+      </div>
+
+  <div class="ibox float-e-margins"> <!--Listado cursos-->
+    <div class="ibox-content">
+      <div class="row tile_count">
+        <div class="col-md-12 col-sm-12 col-xs-12 tile_stats_count">
+          <table class="table table-bordered table-sm m-0">
+                    <thead class="">
+                        <tr>
+                            <th>
+                              <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                            </label>
+                          </th>
+                            <th>Nombre del curso</th>
+                            <th>Plataforma</th>
+                            <th>Run</th>
+                            <th>Edición</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha fin</th>
+                            <th>Archivado</th>
+                            <th>Inscritos total</th>
+                            <th>Inscritos Actual</th>
+                            <th>#Videos</th>
+                            <th>#Minutos Video</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 1</td>
+                            <td>EDX.org</td></a>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>
+                            <td>Curso 4</td>
+                            <td>EDX.org</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>September 14, 2017</td>
+                            <td>September 31, 2017</td>
+                            <td>No</td>
+                            <td>300</td>
+                            <td>280</td>
+                            <td>10</td>
+                            <td>300</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="footer">
+
+
+</div>
+
+</div>
+</div>
+<script src="./src/dashboard.js"></script>
+<script src="./src/demographics/population.js"></script>
+<script src="./src/demographics/gender.js"></script>
+<script src="./src/demographics/studies.js"></script>
+<script src="./src/demographics/country.js"></script>
+<script src="./src/temporal/generales_evol.js"></script>
+<script src="./src/temporal/generales_evol2.js"></script>
+<script src="./src/temporal/generales_variacion.js"></script>
+<script src="./src/temporal/generales_acceso.js"></script>
+<script src="./src/temporal/video_ejercicios.js"></script>
+<script src="./src/temporal/video_ejercicios2.js"></script>
+<script src="./src/totales/totales_notas.js"></script>
+<script src="./src/totales/totales_performance.js"></script>
+<script src="./src/totales/totales_videos.js"></script>
+<script src="./src/totales/totales_globales.js"></script>
+<script src="./src/compare/compare_register.js"></script>
+<script src="./src/compare/compare_active.js"></script>
+<script src="./src/compare/compare_exam.js"></script>
+<script src="./src/compare/compare_pass.js"></script>
+<script src="./src/compare/compare_verified.js"></script>
+<script src="./src/student/student_problem.js"></script>
+</body>
+</html>
